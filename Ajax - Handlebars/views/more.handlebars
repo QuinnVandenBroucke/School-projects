@@ -1,0 +1,51 @@
+{{#section "head"}}
+
+{{/section}}
+
+<h2 id="demo">Let <b>AJAX</b> change this text...</h2>
+<p id='javascript' onclick="loadDoc('ajax1', ajax_function)">With javascript (is AJAX)</p>
+<p id='jQuery'>With jQuery (is also AJAX)</p>
+
+
+{{#section "bottom"}}
+
+{{!-- JAVASCRIPT --}}
+<script type="text/javascript">
+
+    //  The best way to use AJAX with javascript is to write 1 function for doing the XMLHttpRequest and a callback 
+    //  function for each AJAX task 
+    //  Here we only have 1 AJAX task with javascript, but still we do it this way
+
+    //  Handles the XMLHttpRequest
+    function loadDoc(url, cFunction) {
+        var xmlhttp = new XMLHttpRequest();
+
+        //  Define the function to be executed when a response is received
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {   // 4 = request is finished and response is ready, 200 = "ok"
+                //  Function to be executed when a response is available
+                cFunction(xmlhttp);
+            }
+        }
+        xmlhttp.open("GET", url);   //  Specify the type of request
+        xmlhttp.send();             //  Send the request
+    }
+
+    //  Define the function for the ajax task
+    ajax_function = function (xmlhttp) {
+        document.getElementById("demo").innerHTML = xmlhttp.responseText;
+    }
+</script>
+
+{{!-- jQuery --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#jQuery").on("click", () => {
+            //  The load() method loads data from a server and puts the returned data into the selected element.
+            $("#demo").load("ajax2");
+        })
+    })
+</script>
+
+{{/section}}
