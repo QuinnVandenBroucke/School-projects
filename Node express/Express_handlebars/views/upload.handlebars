@@ -1,0 +1,12 @@
+<h3>Upload stuff here</h3>
+
+{{!-- enctype = encryption type, is verplicht 1 van 3 dingen --}}
+<form enctype="multipart/form-data" action="/upload/{{year}}/{{month}}" method="post">
+    <label>Name</label>
+    <input type="text" id="fieldName" name="name">
+    <label>E-mail</label>
+    <input type="text" id="fieldEmail" name="email">
+    <label>Photo</label>
+    <input type="file" accept="image/jpeg" id="fieldPhoto" name="photo">
+    <button type="submit">Submit</button>
+</form>

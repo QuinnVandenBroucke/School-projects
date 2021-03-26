@@ -1,0 +1,12 @@
+{{#section "head"}}
+<meta name="robots" content="noindex">
+{{/section}}
+
+<h1>Different sections</h1>
+<p id="here"></p>
+
+{{#section "bottom"}}
+<script>
+    document.getElementById("here").innerHTML = "Client-side JavaScript!";
+</script>
+{{/section}}

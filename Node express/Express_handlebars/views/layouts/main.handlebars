@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homepage</title>
+</head>
+
+<body>
+    Masterpage, this text will be displayed on every page.
+    <p>
+        {{!-- The menu --}}
+        <a href="/">Home</a> |
+        <a href="/data">Data</a> |
+        <a href="/about">About</a> |
+        <a href="/section">Section</a> |
+        <a href="/newsletter">Newsletter</a> |
+        <a href="/upload">Upload</a> |
+        <a href="/error">Error</a>
+    </p>
+
+    {{!-- Now the dynamic aspect of the page --}}
+    {{{body}}}
+</body>
+
+</html>
